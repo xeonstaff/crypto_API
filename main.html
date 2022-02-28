@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="css/crypto-prices.webflow.css" rel="stylesheet" type="text/css">
+    <title>Crypto: Heck yeah.</title>
+</head>
+<body>
+<!-- webflow-generated website html (+css +js) -->
+<div class="section-2 wf-section">
+    <div>
+      <h1 class="heading">Coin Prices</h1>
+    </div>
+    <p class="paragraph">Your One-stop Shop for Crypto Prices. Or, at least 5 of them.</p>
+    <p class="paragraph-2">Not even the top 5, just like-- 5 sorta near the top.</p>
+  </div>
+  <div class="section wf-section">
+    <div class="w-container">
+      <div>
+        <div class="w-layout-grid grid">
+          <div id=""></div>
+          <div id=""></div>
+          <div id=""></div>
+          <h1 id="" class="heading-2">BTC</h1>
+          <div id="btc"></div>
+          <div id=""></div>
+          <h1 id="" class="heading-2">ETH</h1>
+          <div id="eth"></div>
+          <div id=""></div>
+          <h1 id="" class="heading-2">BNB</h1>
+          <div id="bnb"></div>
+          <div id=""></div>
+          <h1 id="" class="heading-2">ADA</h1>
+          <div id="ada"></div>
+          <div id=""></div>
+          <h1 id="" class="heading-2">XRP</h1>
+          <div id="xrp"></div>
+          <div id=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=621946bd82b12a7c00ed29c7" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+
+    // Data from the CoinLayer API: https://coinlayer.com/
+    const api_url = 'http://api.coinlayer.com/api/live?access_key=64852950bd632c07595292a186236965';
+    
+    //fetching price of 5 cryptocurrencies
+    async function getPrice(){
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const btc = data.rates.BTC
+        const eth = data.rates.ETH
+        const bnb = data.rates.BNB
+        const ada = data.rates.ADA
+        const xrp = data.rates.XRP
+
+        document.getElementById('btc').textContent = btc;
+        document.getElementById('eth').textContent = eth;
+        document.getElementById('bnb').textContent = bnb;
+        document.getElementById('ada').textContent = ada;
+        document.getElementById('xrp').textContent = xrp;
+    }
+
+    getPrice();
+
+    </script>
+    <script src="js/webflow.js" type="text/javascript"></script>
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=621946bd82b12a7c00ed29c7" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</body>

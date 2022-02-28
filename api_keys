@@ -1,0 +1,8 @@
+? access_key: 08fea8a91c3911cdca6cddb875bc32c9
+& symbols = BTC,ETH
+
+endpoint: http://api.coinlayer.com/api/
+
+http://api.coinlayer.com/api/live
+
+http://api.coinlayer.com/api/live?access_key=64852950bd632c07595292a186236965
